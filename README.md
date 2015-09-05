@@ -1,7 +1,7 @@
 NGINX RTMP Dockerfile
 =====================
 
-FORK from `https://github.com/brocaar/nginx-rtmp-dockerfile`
+FORK from https://github.com/brocaar/nginx-rtmp-dockerfile
 
 Changes:
 Mounts a volume to access the config file, so changes can be made without rebuilding the image and mounts log files in the host operating system. Also, made some build changes to reflect building on Debian Jessie with latest stable versions of Nginx and Nginx-rtmp module.
