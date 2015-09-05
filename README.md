@@ -1,6 +1,11 @@
 NGINX RTMP Dockerfile
 =====================
 
+FORK from `https://github.com/brocaar/nginx-rtmp-dockerfile`
+
+Changes:
+Mounts a volume to access the config file, so changes can be made without rebuilding the image and mounts log files in the host operating system. 
+
 This Dockerfile installs NGINX configured with `nginx-rtmp-module`, ffmpeg
 and some default settings for HLS live streaming.
 
@@ -12,7 +17,7 @@ How to user
 -----------
 
 1. Build and run the container (`docker build -t nginx_rtmp .` &
-   `docker run -p 1935:1935 -p 8080:80 --rm nginx_rtmp`).
+   `docker run -p 1935:1935 -p 8080:80  -v /logs/:/logs/ -v /config/:/config/ --rm nginx_rtmp`).
 
 2. Stream your live content to `rtmp://localhost:1935/encoder/stream_name` where
    `stream_name` is the name of your stream.
